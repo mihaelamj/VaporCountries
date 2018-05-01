@@ -24,6 +24,16 @@ Usage (for MySQL) :
   migrations.add(migration: CountryMigration<MySQLDatabase>.self, database: .mysql)
   ```
 
+ Usage (for PostgreSQL) : 
+ ```swift
+migrations.add(migration: ContinentMigration<PostgreSQLDatabase>.self, database: .psql)
+migrations.add(migration: CountryMigration<PostgreSQLDatabase>.self, database: .psql)
+ ```
+ Usage (for SQLite) : 
+ ```swift
+migrations.add(migration: ContinentMigration<SQLiteDatabase>.self, database: .sqlite)
+migrations.add(migration: CountryMigration<SQLiteDatabase>.self, database: .sqlite)
+ ```
 
 Example project:
 https://github.com/mihaelamj/TestVaporCountries
