@@ -46,8 +46,8 @@ let continents : [[String: String]] = [
   ["name": "Nothing", "alpha2": "NN"]
 ]
 
-struct ContinentMigration<D>: Migration where D: QuerySupporting & SchemaSupporting & IndexSupporting {
-  typealias Database = D
+public struct ContinentMigration<D>: Migration where D: QuerySupporting & SchemaSupporting & IndexSupporting {
+  public typealias Database = D
   
   static func prepareFields(on connection: Database.Connection) -> Future<Void> {
     return Database.create(Continent<Database>.self, on: connection) { builder in
@@ -71,7 +71,7 @@ struct ContinentMigration<D>: Migration where D: QuerySupporting & SchemaSupport
     return Future<Void>.andAll(futures, eventLoop: connection.eventLoop)
   }
   
-  static func prepare(on connection: Database.Connection) -> Future<Void> {
+  public static func prepare(on connection: Database.Connection) -> Future<Void> {
     
     let futureCreateFields = prepareFields(on: connection)
     let futureInsertData = prepareInsertData(on: connection)
@@ -81,7 +81,7 @@ struct ContinentMigration<D>: Migration where D: QuerySupporting & SchemaSupport
     return Future<Void>.andAll(allFutures, eventLoop: connection.eventLoop)
   }
   
-  static func revert(on connection: Database.Connection) -> Future<Void> {
+  public static func revert(on connection: Database.Connection) -> Future<Void> {
     do {
       // Delete all names
       let futures = try continents.map { continent -> EventLoopFuture<Void> in

@@ -54,9 +54,9 @@ extension Country {
 
 //MARK: - Populating data
 
-struct CountryMigration<D>: Migration where D: QuerySupporting & SchemaSupporting & IndexSupporting & ReferenceSupporting {
+public struct CountryMigration<D>: Migration where D: QuerySupporting & SchemaSupporting & IndexSupporting & ReferenceSupporting {
   
-  typealias Database = D
+  public typealias Database = D
   
 //MARK: - Create Fields, Indexes and relations
   
@@ -155,7 +155,7 @@ struct CountryMigration<D>: Migration where D: QuerySupporting & SchemaSupportin
   
   //MARK: - Required
   
-  static func prepare(on connection: Database.Connection) -> Future<Void> {
+  public static func prepare(on connection: Database.Connection) -> Future<Void> {
     let futureCreateFields = prepareFields(on: connection)
     let futureInsertData = prepareAddCountries(on: connection)
     
@@ -164,7 +164,7 @@ struct CountryMigration<D>: Migration where D: QuerySupporting & SchemaSupportin
     return Future<Void>.andAll(allFutures, eventLoop: connection.eventLoop)
   }
   
-  static func revert(on connection: D.Connection) -> EventLoopFuture<Void> {
+  public static func revert(on connection: D.Connection) -> EventLoopFuture<Void> {
     let futures = countries.map { continentAlpha2, countryTouples in
       return deleteCountries(on: connection, forContinentWithAlpha2: continentAlpha2, countries: countryTouples)
     }
