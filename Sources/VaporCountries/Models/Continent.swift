@@ -1,4 +1,3 @@
-#if Xcode
 import Async
 import Fluent
 import Foundation
@@ -96,4 +95,4 @@ internal struct ContinentMigration<D>: Migration where D: QuerySupporting & Sche
     }
   }
 }
-#endif
+
