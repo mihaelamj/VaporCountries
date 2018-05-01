@@ -1,6 +1,3 @@
-//TODO: add children property (countries)
-//TODO: SQLite : enableReferences
-
 #if Xcode
 import Async
 import Fluent
