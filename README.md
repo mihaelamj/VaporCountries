@@ -2,6 +2,21 @@
 
 Vapor package to add Country and Continent data to any database.
 
+Import it into your project:
+```
+let package = Package(
+    name: "TestVaporCountries",
+    dependencies: [      
+      //VaporCountries
+        .package(url: "https://github.com/mihaelamj/VaporCountries.git", from: "0.0.4")
+  ],
+    targets: [
+      .target(name: "App", dependencies: ["FluentSQLite", "FluentMySQL", "FluentPostgreSQL", "VaporCountries"]),
+  ]
+)
+
+```
+
 Usage (for MySQL) :
 
 ```swift
