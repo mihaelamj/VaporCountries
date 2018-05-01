@@ -37,3 +37,6 @@ migrations.add(migration: CountryMigration<SQLiteDatabase>.self, database: .sqli
 
 Example project:
 https://github.com/mihaelamj/TestVaporCountries
+
+Tutorial article on making a new Vapor Package
+https://mihaelamj.github.io/Making%20a%20New%20Vapor%20Package/
