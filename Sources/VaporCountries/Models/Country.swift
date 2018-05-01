@@ -54,7 +54,7 @@ extension Country {
 
 //MARK: - Populating data
 
-internal struct CountryMigration<D>: Migration where D: QuerySupporting & SchemaSupporting & IndexSupporting & ReferenceSupporting {
+public struct CountryMigration<D>: Migration where D: QuerySupporting & SchemaSupporting & IndexSupporting & ReferenceSupporting {
   
   typealias Database = D
   

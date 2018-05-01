@@ -46,7 +46,7 @@ let continents : [[String: String]] = [
   ["name": "Nothing", "alpha2": "NN"]
 ]
 
-internal struct ContinentMigration<D>: Migration where D: QuerySupporting & SchemaSupporting & IndexSupporting {
+public struct ContinentMigration<D>: Migration where D: QuerySupporting & SchemaSupporting & IndexSupporting {
   typealias Database = D
   
   static func prepareFields(on connection: Database.Connection) -> Future<Void> {
