@@ -47,7 +47,7 @@ extension Country: Migration where D: QuerySupporting, D: IndexSupporting, D: Re
 ////Country ⇇↦  Continent
 extension Country {
   /// A relation to this country's continent.
-  var owner: Parent<Country, Continent<Database>>? {
+  public var continent: Parent<Country, Continent<Database>>? {
     return parent(\.continentID)
   }
 }
