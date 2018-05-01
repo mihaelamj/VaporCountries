@@ -28,7 +28,7 @@ extension Continent: Migration where D: QuerySupporting, D: IndexSupporting { }
 
 //Continent ↤⇉ Country
 extension Continent {
-  var countries: Children<Continent, Country<Database>> {
+  public var countries: Children<Continent, Country<Database>> {
     return children(\.continentID)
   }
 }
