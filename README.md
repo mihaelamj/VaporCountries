@@ -20,17 +20,29 @@ let package = Package(
 Usage (for MySQL) :
 
 ```swift
+//configure database
+  Continent<MySQLDatabase>.defaultDatabase = .mysql
+  Country<MySQLDatabase>.defaultDatabase = .mysql
+  //configure migrations
   migrations.add(migration: ContinentMigration<MySQLDatabase>.self, database: .mysql)
   migrations.add(migration: CountryMigration<MySQLDatabase>.self, database: .mysql)
   ```
 
  Usage (for PostgreSQL) : 
  ```swift
+ //configure database
+Continent<PostgreSQLDatabase>.defaultDatabase = .psql
+Country<PostgreSQLDatabase>.defaultDatabase = .psql
+//configure migrations
 migrations.add(migration: ContinentMigration<PostgreSQLDatabase>.self, database: .psql)
 migrations.add(migration: CountryMigration<PostgreSQLDatabase>.self, database: .psql)
  ```
  Usage (for SQLite) : 
  ```swift
+ //configure database
+Continent<SQLiteDatabase>.defaultDatabase = .sqlite
+Country<SQLiteDatabase>.defaultDatabase = .sqlite
+//configure migrations
 migrations.add(migration: ContinentMigration<SQLiteDatabase>.self, database: .sqlite)
 migrations.add(migration: CountryMigration<SQLiteDatabase>.self, database: .sqlite)
  ```
