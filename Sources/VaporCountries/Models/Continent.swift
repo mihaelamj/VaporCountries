@@ -1,3 +1,4 @@
+#if Xcode
 import Async
 import Fluent
 import Foundation
@@ -26,9 +27,11 @@ public final class Continent<D>: Model where D: QuerySupporting, D: IndexSupport
 
 extension Continent: Migration where D: QuerySupporting, D: IndexSupporting { }
 
+// MARK: - Relations
+
 //Continent ↤⇉ Country
 extension Continent {
-  public var countries: Children<Continent, Country<Database>> {
+  var countries: Children<Continent, Country<Database>> {
     return children(\.continentID)
   }
 }
@@ -95,4 +98,17 @@ public struct ContinentMigration<D>: Migration where D: QuerySupporting & Schema
     }
   }
 }
+#else
+//for use in iOS project
+final class Continent : Codable {
+  var id : Int?
+  var name : String
+  var alpha2: String
+  
+  init(name : String, alpha2: String) {
+    self.name = name
+    self.alpha2 = alpha2
+  }
+}
 
+#endif

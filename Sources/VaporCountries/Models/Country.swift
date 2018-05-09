@@ -1,3 +1,4 @@
+#if Xcode
 import Async
 import Fluent
 import Foundation
@@ -17,7 +18,7 @@ public final class Country<D>: Model where D: QuerySupporting, D: IndexSupportin
   }
   
   public static var database: DatabaseIdentifier<D> {
-    return .init("countries")
+    return .init("country")
   }
   
   var id: Int?
@@ -42,12 +43,12 @@ public final class Country<D>: Model where D: QuerySupporting, D: IndexSupportin
 
 extension Country: Migration where D: QuerySupporting, D: IndexSupporting, D: ReferenceSupporting { }
 
-// MARK: Relations
+// MARK: - Relations
 
 ////Country ⇇↦  Continent
 extension Country {
   /// A relation to this country's continent.
-  public var continent: Parent<Country, Continent<Database>>? {
+  var continent: Parent<Country, Continent<Database>>? {
     return parent(\.continentID)
   }
 }
@@ -172,4 +173,5 @@ public struct CountryMigration<D>: Migration where D: QuerySupporting & SchemaSu
   }
 
 }
+#endif
 
