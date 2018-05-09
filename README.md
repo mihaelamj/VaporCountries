@@ -22,7 +22,11 @@ Usage (for MySQL) :
 ```swift
 import VaporCountries
 
+// in configure.swift
 migrations.addVaporCountries(for: .mysql)
+
+//in routes.swift
+try addVaporCountriesRoutes(for: .mysql, router: router)
   ```
 
  Usage (for PostgreSQL) : 
@@ -30,13 +34,21 @@ migrations.addVaporCountries(for: .mysql)
 ```swift
 import VaporCountries
 
+// in configure.swift
 migrations.addVaporCountries(for: .psql)
+
+//in routes.swift
+try addVaporCountriesRoutes(for: .psql, router: router)
   ```
  Usage (for SQLite) : 
  ```swift
 import VaporCountries
 
+// in configure.swift
 migrations.addVaporCountries(for: .sqlite)
+
+//in routes.swift
+try addVaporCountriesRoutes(for: .sqlite, router: router)
  ```
 
 Example project:
