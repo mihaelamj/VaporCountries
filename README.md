@@ -8,7 +8,7 @@ let package = Package(
     name: "TestVaporCountries",
     dependencies: [      
       //VaporCountries
-        .package(url: "https://github.com/mihaelamj/VaporCountries.git", from: "0.0.4")
+        .package(url: "https://github.com/mihaelamj/VaporCountries.git", from: "0.1.0")
   ],
     targets: [
       .target(name: "App", dependencies: ["FluentSQLite", "FluentMySQL", "FluentPostgreSQL", "VaporCountries"]),
