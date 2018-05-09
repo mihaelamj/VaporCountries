@@ -9,3 +9,15 @@ extension MigrationConfig {
     self.add(migration: CountryMigration<D>.self, database: database)
   }
 }
+
+import Vapor
+import Routing
+
+public func addVaporCountriesRoutes<D>(for database: DatabaseIdentifier<D>, router: Router) throws where D: QuerySupporting & IndexSupporting & ReferenceSupporting {
+  let continetsController = ContinentsController<D>()
+  try router.register(collection: continetsController)
+  
+  let countriesController = CountriesController<D>()
+  try router.register(collection: countriesController)
+}
+
